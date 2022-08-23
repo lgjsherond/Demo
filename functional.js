@@ -24,13 +24,13 @@ export default function(){
     let signInButton=page.$('input[id="submit"');
 
     // SAML Sign In
-    emailTextbox.type('techhubdemo@wiley.com');
+    emailTextbox.type('demohub@personal.com');
     nextButton.click();    
     page.waitForSelector('input[name="password"]');
     page.screenshot({path:'UserName.png'});
     
     // Log In action
-    passwordBox.type('wileydemo');
+    passwordBox.type('My@password');
     signInButton.click();
     page.waitForLoadState('networkidle');
     // sleep(3);
