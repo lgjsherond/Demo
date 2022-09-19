@@ -1,6 +1,5 @@
 import { check, sleep } from "k6";
-// import 
-import launcher from "k6/x/browser"
+import { chromium } from 'k6/x/browser';
 
 // export const options = {
 //     vus: 2,
@@ -8,7 +7,12 @@ import launcher from "k6/x/browser"
 //   };
 
 export default function(){
-    const browser=launcher.launch('chromium',{headless:false});
+    const browser=chromium.launch(
+        {
+            headless:false,
+            slowMo: '500ms'
+        }
+    );
     const context=browser.newContext();
     const page=context.newPage();
 
